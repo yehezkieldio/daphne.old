@@ -25,6 +25,7 @@
         "noPropertyAccessFromIndexSignature": false,
 
         "paths": {
+            "@/env": ["./src/env"],
             "@/extensions/*": ["./src/libs/extensions/*"],
             "@/typings/*": ["./src/libs/typings/*"],
             "@/utils/*": ["./src/libs/utils/*"]

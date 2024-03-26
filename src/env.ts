@@ -4,6 +4,11 @@ import { z } from "zod";
 export const env = createEnv({
     server: {
         DISCORD_BOT_TOKEN: z.string().min(1),
+
+        INFLUXDB_URL: z.string().min(1),
+        INFLUXDB_TOKEN: z.string().min(1),
+        INFLUXDB_ORG: z.string().min(1),
+        INFLUXDB_BUCKET: z.string().min(1),
     },
 
     /**

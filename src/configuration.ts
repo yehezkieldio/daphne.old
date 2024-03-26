@@ -23,4 +23,5 @@ export const configuration: DaphneClientOptions = {
     logger: {
         level: LogLevel.Debug,
     },
+    analytics: true,
 };
