@@ -3,9 +3,18 @@
   "module": "src/index.ts",
   "type": "module",
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "prettier": "^3.2.5"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@sapphire/discord.js-utilities": "^7.1.6",
+    "@sapphire/framework": "^5.0.10",
+    "@sapphire/plugin-logger": "^4.0.2",
+    "@sapphire/plugin-subcommands": "^6.0.3",
+    "@sapphire/utilities": "^3.15.3",
+    "discord.js": "^14.14.1"
   }
 }
