@@ -30,4 +30,3 @@ services:
 volumes:
     postgresql-data:
     influxdb-data:
-    chronograf-storage:
