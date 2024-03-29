@@ -18,14 +18,24 @@ export class DaphneClient extends SapphireClient {
         super(options);
 
         if (options.overrideApplicationCommandsRegistries) {
+            container.logger.info(
+                "DaphneClient: Default behavior for application commands registries are set to BulkOverwrite."
+            );
             ApplicationCommandRegistries.setDefaultBehaviorWhenNotIdentical(RegisterBehavior.BulkOverwrite);
         }
 
         if (options.analytics) {
-            container.logger.info(
-                "Enabling InfluxDB analytics client, please ensure that the required environment variables are set."
-            );
-            container.analytics = AnalyticsClient.getInstance();
+            container.logger.info("DaphneClient: Analytics enabled, attempting connection test...");
+            container.analytics = new AnalyticsClient();
+
+            container.analytics
+                .test()
+                .then((result) => {
+                    container.logger.info("DaphneClient: Analytics connection test successful!");
+                })
+                .catch((error) => {
+                    container.logger.error("DaphneClient: Analytics connection test failed!");
+                });
         }
     }
 }

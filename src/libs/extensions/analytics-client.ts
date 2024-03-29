@@ -1,10 +1,8 @@
 import { env } from "@/env";
-import { InfluxDB } from "@influxdata/influxdb-client";
+import { InfluxDB, Point } from "@influxdata/influxdb-client";
 
 export class AnalyticsClient extends InfluxDB {
-    private static instance: AnalyticsClient;
-
-    private constructor() {
+    public constructor() {
         super({
             url: env.INFLUXDB_URL,
             token: env.INFLUXDB_TOKEN,
@@ -27,15 +25,7 @@ export class AnalyticsClient extends InfluxDB {
         return env.INFLUXDB_ORG;
     }
 
-    /**
-     * We use a singleton pattern to ensure that we only have one instance of the client.
-     * This is because the client is stateful and we want to ensure that we are not creating
-     * multiple connections to the InfluxDB server.
-     */
-    public static getInstance(): AnalyticsClient {
-        if (!AnalyticsClient.instance) {
-            AnalyticsClient.instance = new AnalyticsClient();
-        }
-        return AnalyticsClient.instance;
+    public test() {
+        return this.queryApi.queryRaw("buckets()");
     }
 }
