@@ -177,3 +177,6 @@ dist
 # infa
 influxdb-data/
 postgresql-data/
+
+# drizzle
+drizzle

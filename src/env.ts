@@ -9,6 +9,8 @@ export const env = createEnv({
         INFLUXDB_TOKEN: z.string().min(1),
         INFLUXDB_ORG: z.string().min(1),
         INFLUXDB_BUCKET: z.string().min(1),
+
+        DATABASE_CONNECTING_STRING: z.string().min(1),
     },
 
     /**
